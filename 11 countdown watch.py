@@ -1,5 +1,8 @@
 from time import sleep
 from playsound import playsound
+import glob
+import os
+from random import randint
 
 secs = int(input('Enter second(s): '))
 mins = int(input('Enter minute(s): '))
@@ -10,9 +13,10 @@ if mins == 0:
 		secs -= 1
 		sleep(1)
 	print(f'00:0{secs}\nAudio ringing...')
-	playsound(r'D:\Temp\\newYear.mp3')
-	print('Done')
-
+	os.chdir(r'M:\Muzik')
+	audio = [i for i in glob.glob('*.mp3')]
+	random_song = rf'M:\Muzik\\{audio[randint(0,len(audio))]}'
+	playsound(random_song)
 
 else : 
 	while mins >= 1: 
@@ -28,5 +32,8 @@ else :
 		secs -= 1
 		sleep(1)
 	print(f'00:0{secs}\nAudio ringing...')
-	playsound(r'D:\Temp\\newYear.mp3')
-	print('Done')
+	os.chdir(r'M:\Muzik')
+	audio = [i for i in glob.glob('*.mp3')]
+	random_song = rf'M:\Muzik\\{audio[randint(0,len(audio))]}'
+	playsound(random_song)
+
